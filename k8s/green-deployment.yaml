@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopeasy-green
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: shopeasy
+      version: green
+  template:
+    metadata:
+      labels:
+        app: shopeasy
+        version: green
+    spec:
+      containers:
+      - name: shopeasy
+        image: shopeasy-app:v2
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
